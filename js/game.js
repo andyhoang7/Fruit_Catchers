@@ -138,23 +138,12 @@ function setupKeyboardListeners() {
 let update = function() {
   // TIMER - START
 
-  // if (SECONDS_PER_ROUND - elapsedTime == 0 && scoreMonkey > scoreGori) {
-  //   alert("Monkey Won")
-  // }
-
-  // if (SECONDS_PER_ROUND - elapsedTime == 0 && scoreGori > scoreMonkey) {
-  //   alert("Gori Won")
-  // }
-
-  // if (SECONDS_PER_ROUND - elapsedTime == 0 && scoreGori == scoreMonkey) {
-  //   alert("You both suck")
-  // }
-
   elapsedTime = Math.floor((Date.now() - startTime) / 1000);
   let timer;
   timer = setInterval(() => {
     const timeDown = SECONDS_PER_ROUND - elapsedTime;
-    document.getElementById("timeDown").innerHTML = timeDown;
+    document.getElementById("timeDown").innerHTML =
+      "Remaining time: " + timeDown + "s";
   });
 
   // TIMER - END
@@ -227,7 +216,7 @@ let update = function() {
   // ----------BEYOND BORDER & REAPPEAR - GORI - END
 
   // BEYOND BORDER & REAPPEAR - EAGLE - START
-  
+
   const eagleSpeed = game.startspeed - 15;
   eagleX += eagleSpeed;
   eagleY = eagleY;
@@ -244,7 +233,7 @@ let update = function() {
   // ----------BEYOND BORDER & REAPPEAR - EAGLE - START
 
   // BEYOND BORDER & REAPPEAR - EAGLE1 - START
- 
+
   const eagle1Speed = game.startspeed + 15;
   eagle1X += eagle1Speed;
   eagle1Y = eagle1Y;
@@ -317,7 +306,10 @@ let update = function() {
   if (scoreMonkey > currentHighScoreMonkey) {
     localStorage.setItem("high-scoreMonkey", scoreMonkey);
     document.getElementById("highScoreMonkey").innerHTML =
-      "Monkey High Score: " + scoreMonkey;
+      "Monkey Highest Score: " + scoreMonkey;
+  } else {
+    document.getElementById("highScoreMonkey").innerHTML =
+      "Monkey Highest Score: " + currentHighScoreMonkey;
   }
   // HIGHSCORE MONKEY - END
 
@@ -378,7 +370,11 @@ let update = function() {
   const currentHighScoreGori = localStorage.getItem("high-scoreGori");
   if (scoreGori > currentHighScoreGori) {
     localStorage.setItem("high-scoreGori", scoreGori);
-    document.getElementById("highScoreGori").innerHTML = scoreGori;
+    document.getElementById("highScoreGori").innerHTML =
+      "Gori Highest Score: " + scoreGori;
+  } else {
+    document.getElementById("highScoreGori").innerHTML =
+      "Gori Highest Score: " + currentHighScoreGori;
   }
   // HIGHSCORE GORI - END
 
@@ -412,7 +408,12 @@ var render = function() {
   if (SECONDS_PER_ROUND - elapsedTime == 0) {
     if (scoreMonkey > scoreGori) {
       ctx.fillStyle = "#163a2e";
-      ctx.fillRect(canvas.width/3, canvas.height/3, canvas.width*0.5, canvas.height*0.5);
+      ctx.fillRect(
+        canvas.width / 3,
+        canvas.height / 3,
+        canvas.width * 0.5,
+        canvas.height * 0.5
+      );
       ctx.textAlign = "center";
       ctx.font = "60px Arial";
       ctx.fillStyle = "white";
@@ -482,7 +483,7 @@ function playGame() {
   loadImages();
   setupKeyboardListeners();
   main();
-  document.getElementById("playGame").style.visibility = "hidden";
+  document.getElementById("playGame").disabled = true;
 }
 
 function resetGame() {
@@ -491,6 +492,8 @@ function resetGame() {
 
   scoreMonkey = 0;
   scoreGori = 0;
+
+  //   localStorage.clear();
 
   // PLAYER STARTING POSITION - START
   monkeyX = canvas.width / 2;
