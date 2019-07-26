@@ -1,78 +1,103 @@
+body {
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+  background-image: url("https://www.toptal.com/designers/subtlepatterns/patterns/papyrus.png");
+  background-repeat: repeat;
+}
 
 .container1 {
-    background-color: coral;
+  /* background-color: coral; */
 }
 
 #title {
-    display: flex;
-    font-weight: bold;
-    justify-content: center;
-    align-items: center;
-    font-size: 4rem;
-    background-color: blue;
+  display: flex;
+  font-weight: bold;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+  /* background-color: blue; */
+  margin: 1rem;
+}
+
+.description {
+    /* display: flex; */
+    /* text-align: center; */
+    font-size: 1.5rem;
+    /* flex-direction: column; */
 }
 
 .buttonX {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: red;
-    flex-direction: row;
-    margin: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+  flex-direction: row;
+  margin: 1rem;
 }
 
 .button1 {
-    margin: 1rem;
-    width: 15rem;
-    height: 4rem;
-    font-size: 2rem;
+  margin: 1rem;
+  width: 15rem;
+  height: 4rem;
+  font-size: 2rem;
 }
 
 .button2 {
-    margin: 1rem;
-    width: 15rem;
-    height: 4rem;
-    font-size: 2rem;
+  margin: 1rem;
+  width: 15rem;
+  height: 4rem;
+  font-size: 2rem;
 }
 
 #timeDown {
-    display: flex;
-    justify-content: center;
-
+  display: flex;
+  justify-content: center;
+  /* background-color: darkmagenta; */
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1rem;
 }
 
-.container {
-    /* background-color: aqua */
-}
+
 
 .row {
-    /* background-color: chocolate */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  /* background-color: chocolate */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .col-1 {
-    background-color: chartreuse
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+  /* background-color: chartreuse; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.5rem;
+  font-weight: bold
 }
 
 .col-2 {
-    background-color: brown
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+  /* background-color: brown; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.5rem;
+  font-weight: bold
+
 }
 
 #script {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
-.js {
-    display: flex;
-    background-color: darkorchid
+#game {
+  /* background-color: green; */
 }

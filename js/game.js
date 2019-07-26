@@ -30,13 +30,11 @@ let bgImage,
   eagle1Image;
 
 let startTime = Date.now();
-const SECONDS_PER_ROUND = 60;
+const SECONDS_PER_ROUND = 30;
 let elapsedTime = 0;
 
 let game = {
   startspeed: 1,
-  difficulty: 1,
-  level: 1
 };
 
 let scoreMonkey = 0;
@@ -91,14 +89,19 @@ function loadImages() {
 // ----------LOADING IMAGES - END
 
 // PLAYER STARTING POSITION - START
-let monkeyX = canvas.width / 2;
+let monkeyX = canvas.width / 2 + 200;
 let monkeyY = canvas.height / 2;
 
-let goriX = canvas.width / 2;
+let goriX = canvas.width / 2 - 200;
 let goriY = canvas.height / 2;
 // ----------PLAYER STARTING  POSITION - END
 
 // FRUITS AND EAGLES STARTING POSITION - START
+// function generateRandomInteger(min, max) {
+//     return Math.floor(min + Math.random()*(max + 1 - min))
+//   }
+
+
 const getRandom = x => Math.floor(Math.random() * x);
 
 let bananaX = getRandom(1200);
@@ -107,11 +110,11 @@ let bananaY = getRandom(700);
 let pineappleX = getRandom(1200);
 let pineappleY = getRandom(700);
 
-let eagleX = getRandom(1200);
-let eagleY = getRandom(700);
+let eagleX = getRandom(1000);
+let eagleY = getRandom(600);
 
-let eagle1X = getRandom(1200);
-let eagle1Y = getRandom(700);
+let eagle1X = getRandom(1000);
+let eagle1Y = getRandom(600);
 // ----------FRUITS AND EAGLES STARTING POSITION - END
 
 // SETUP KEYBOARD LISTENERS - START
@@ -147,6 +150,7 @@ let update = function() {
   });
 
   // TIMER - END
+
   // PLAYER 1 MOVEMENT KEYS - START
   if (38 in keysDown) {
     // Player is holding up key
@@ -223,12 +227,12 @@ let update = function() {
 
   if (eagleX <= -10) {
     eagleX = canvas.width - 10;
-    eagleY = Math.floor(Math.random() * 820) - 10;
+    eagleY = Math.floor(Math.random() * 820) - 300;
   }
 
   if (eagleX >= canvas.width) {
     eagleX = 0;
-    eagleY = Math.floor(Math.random() * 820) - 10;
+    eagleY = Math.floor(Math.random() * 820) - 300;
   }
   // ----------BEYOND BORDER & REAPPEAR - EAGLE - START
 
@@ -240,12 +244,12 @@ let update = function() {
 
   if (eagle1X <= -10) {
     eagle1X = canvas.width - 10;
-    eagle1Y = Math.floor(Math.random() * 1300) - 10;
+    eagle1Y = Math.floor(Math.random() * 1300) - 300;
   }
 
   if (eagle1X >= canvas.width - 10) {
     eagle1X = 0;
-    eagle1Y = Math.floor(Math.random() * 1300) - 10;
+    eagle1Y = Math.floor(Math.random() * 1300) - 300;
   }
   // ----------BEYOND BORDER & REAPPEAR - EAGLE1 - END
 
@@ -258,8 +262,8 @@ let update = function() {
 
   if (monkeyTouchBanana) {
     scoreMonkey += 10;
-    bananaX = Math.floor(Math.random() * 1300);
-    bananaY = Math.floor(Math.random() * 820);
+    bananaX = Math.floor(Math.random() * 1200);
+    bananaY = Math.floor(Math.random() * 700);
   }
 
   let monkeyTouchPineapple =
@@ -270,8 +274,8 @@ let update = function() {
 
   if (monkeyTouchPineapple) {
     scoreMonkey += 20;
-    pineappleX = Math.floor(Math.random() * 1300);
-    pineappleY = Math.floor(Math.random() * 820);
+    pineappleX = Math.floor(Math.random() * 1200);
+    pineappleY = Math.floor(Math.random() * 700);
   }
 
   let monkeyTouchEagle =
@@ -282,8 +286,8 @@ let update = function() {
 
   if (monkeyTouchEagle) {
     scoreMonkey -= 10;
-    eagleX = Math.floor(Math.random() * 1200);
-    eagleY = Math.floor(Math.random() * 820);
+    eagleX = Math.floor(Math.random() * 1000);
+    eagleY = Math.floor(Math.random() * 600);
   }
 
   let monkeyTouchEagle1 =
@@ -294,8 +298,8 @@ let update = function() {
 
   if (monkeyTouchEagle1) {
     scoreMonkey -= 10;
-    eagle1X = Math.floor(Math.random() * 1200);
-    eagle1Y = Math.floor(Math.random() * 820);
+    eagle1X = Math.floor(Math.random() * 1000);
+    eagle1Y = Math.floor(Math.random() * 600);
   }
 
   document.getElementById("scoreMonkey").innerHTML =
@@ -324,8 +328,8 @@ let update = function() {
 
   if (goriTouchBanana) {
     scoreGori += 10;
-    bananaX = Math.floor(Math.random() * 1300);
-    bananaY = Math.floor(Math.random() * 820);
+    bananaX = Math.floor(Math.random() * 1200);
+    bananaY = Math.floor(Math.random() * 700);
   }
 
   let goriTouchPineapple =
@@ -336,8 +340,8 @@ let update = function() {
 
   if (goriTouchPineapple) {
     scoreGori += 20;
-    pineappleX = Math.floor(Math.random() * 1300);
-    pineappleY = Math.floor(Math.random() * 820);
+    pineappleX = Math.floor(Math.random() * 1200);
+    pineappleY = Math.floor(Math.random() * 700);
   }
 
   let goriTouchEagle =
@@ -348,8 +352,8 @@ let update = function() {
 
   if (goriTouchEagle) {
     scoreGori -= 10;
-    eagleX = Math.floor(Math.random() * 1200);
-    eagleY = Math.floor(Math.random() * 820);
+    eagleX = Math.floor(Math.random() * 1000);
+    eagleY = Math.floor(Math.random() * 600);
   }
 
   let goriTouchEagle1 =
@@ -360,8 +364,8 @@ let update = function() {
 
   if (goriTouchEagle1) {
     scoreGori -= 10;
-    eagle1X = Math.floor(Math.random() * 1200);
-    eagle1Y = Math.floor(Math.random() * 820);
+    eagle1X = Math.floor(Math.random() * 1000);
+    eagle1Y = Math.floor(Math.random() * 600);
   }
 
   document.getElementById("scoreGori").innerHTML = "Gori Score: " + scoreGori;
@@ -405,50 +409,71 @@ var render = function() {
     ctx.drawImage(eagle1Image, eagle1X, eagle1Y);
   }
 
+  if (SECONDS_PER_ROUND - elapsedTime > 0) {
+    document.getElementById("reset").disabled = true;
+  } else {
+    document.getElementById("reset").disabled = false;
+  }
+
   if (SECONDS_PER_ROUND - elapsedTime == 0) {
     if (scoreMonkey > scoreGori) {
       ctx.fillStyle = "#163a2e";
       ctx.fillRect(
-        canvas.width / 3,
-        canvas.height / 3,
-        canvas.width * 0.5,
-        canvas.height * 0.5
+        200,
+        200,
+        canvas.width -400,
+        canvas.height -400,
       );
       ctx.textAlign = "center";
       ctx.font = "60px Arial";
       ctx.fillStyle = "white";
-      ctx.fillText("Monkey Won", canvas.width / 2, canvas.height / 2 - 50);
+      ctx.fillText("Monkey Won & Survived", 
+      canvas.width / 2, canvas.height / 2 - 30
+      );
       ctx.fillText(
-        "Hit reset button to try again",
+        "Reset Game to try again",
         canvas.width / 2,
-        canvas.height / 2 + 50
+        canvas.height / 2 + 70
       );
       ctx.fillStyle = "green";
       clearInterval(timer);
+
+
+
     } else if (scoreGori > scoreMonkey) {
-      ctx.fillStyle = "green";
-      ctx.fillRect(50, 50, canvas.width - 100, canvas.height - 100);
+      ctx.fillStyle = "#163a2e";
+      ctx.fillRect(200,
+        200,
+        canvas.width -400,
+        canvas.height -400,);
       ctx.textAlign = "center";
-      ctx.font = "100px Arial";
+      ctx.font = "60px Arial";
       ctx.fillStyle = "white";
-      ctx.fillText("Gori Won", canvas.width / 2, canvas.height / 2 - 50);
+      ctx.fillText("Gori Won & Survived", canvas.width / 2, canvas.height / 2 - 30);
       ctx.fillText(
-        "Hit reset button to try again",
+        "Reset Game to try again",
         canvas.width / 2,
-        canvas.height / 2 + 50
+        canvas.height / 2 + 70
       );
       clearInterval(timer);
+
+
+
+
     } else {
-      ctx.fillStyle = "green";
-      ctx.fillRect(50, 50, canvas.width - 100, canvas.height - 100);
+      ctx.fillStyle = "#163a2e";
+      ctx.fillRect(200,
+        200,
+        canvas.width -400,
+        canvas.height -400,);
       ctx.textAlign = "center";
-      ctx.font = "100px Arial";
+      ctx.font = "60px Arial";
       ctx.fillStyle = "white";
-      ctx.fillText("You tied", canvas.width / 2, canvas.height / 2 - 50);
+      ctx.fillText("You both suck. They all died...", canvas.width / 2, canvas.height / 2 - 30);
       ctx.fillText(
-        "Hit reset button to try again",
+        "Reset Game to try again",
         canvas.width / 2,
-        canvas.height / 2 + 50
+        canvas.height / 2 + 70
       );
       clearInterval(timer);
     }
@@ -487,19 +512,18 @@ function playGame() {
 }
 
 function resetGame() {
+  main();
   elapsedTime = 0;
   startTime = Date.now();
 
   scoreMonkey = 0;
   scoreGori = 0;
 
-  //   localStorage.clear();
-
   // PLAYER STARTING POSITION - START
-  monkeyX = canvas.width / 2;
+  monkeyX = canvas.width / 2 + 200;
   monkeyY = canvas.height / 2;
 
-  goriX = canvas.width / 2;
+  goriX = canvas.width / 2 - 200;
   goriY = canvas.height / 2;
   // ----------PLAYER STARTING  POSITION - END
 
@@ -510,10 +534,10 @@ function resetGame() {
   pineappleX = getRandom(1200);
   pineappleY = getRandom(700);
 
-  eagleX = getRandom(1200);
-  eagleY = getRandom(700);
+  eagleX = getRandom(1000);
+  eagleY = getRandom(600);
 
-  eagle1X = getRandom(1200);
-  eagle1Y = getRandom(700);
+  eagle1X = getRandom(1000);
+  eagle1Y = getRandom(600);
   // ----------FRUITS AND EAGLES STARTING POSITION - END
 }

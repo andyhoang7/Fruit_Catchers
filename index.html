@@ -16,44 +16,63 @@
     <div class="container-fluid container1">
       <div id="title">Fruit Catchers</div>
 
-      <div class="buttonX">
-        <button
-          type="button"
-          class="btn btn-success button1"
-          id="playGame"
-          onClick="playGame()"
-        >
-          Play Game
-        </button>
-        <button
-          type="button"
-          class="btn btn-warning button2"
-          id="reset"
-          onClick="resetGame()"
-        >
-          Reset Game
-        </button>
+      <div class="description">
+          <p>Baby Monkey & Hungry Gorilla are fighting for their survivals in a jungle.
+              Grab your fruits quickly and avoid looming predators, whoever gathers more fruits will survive the coming hurricane!
+          </p>
+          <li> You can move Baby Monkey with Arrow keys & Hungry Gorilla with WASD keys </li>
+          <li> Each fruit has certain points: Banana = 5 points, Apple = 10 points, Pineapple = 20 points </li>
+          <li> Avoid the eagles. Eagle = -10 points if they catch Baby Monkey or Hungry Gorilla </li>
+          <li> Each game lasts 30 seconds</li>
+          <li> Whoever has the most points when time is up wins</li>
       </div>
 
-      <div id="timeDown">Remaining time: 60s</div>
+      
+
+      <div id="timeDown">Remaining time: 30s</div>
 
       <div class="container">
         <div class="row">
           <div class="col-sm col-1">
+            <div style="font-weight: bold">Baby Monkey</div>
             <div id="scoreMonkey">Monkey Score: 0</div>
             <div id="highScoreMonkey">Monkey Highest Score: 0</div>
           </div>
           <div class="col-sm col-2">
+            <div style="font-weight: bold">Hungry Gori</div>
             <div id="scoreGori">Gori Score: 0</div>
             <div id="highScoreGori">Gori Highest Score: 0</div>
           </div>
         </div>
       </div>
+
+      <div class="buttonX">
+            <button
+              type="button"
+              class="btn btn-success button1"
+              id="playGame"
+              onClick="playGame()"
+            >
+              Play Game
+            </button>
+            <button
+              type="button"
+              class="btn btn-warning button2"
+              id="reset"
+              onClick="resetGame()"
+            >
+              Reset Game
+            </button>
+          </div>
+
+
+
+
+
     </div>
 
-    <div class="js">
-            <script id="script" src="js/game.js"></script>
-
+    <div id="game">
+      <script id="script" src="js/game.js"></script>
     </div>
   </body>
 </html>
