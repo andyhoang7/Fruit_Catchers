@@ -46,7 +46,6 @@ let game = {
 
 let scoreMonkey = 0;
 let scoreGori = 0;
-
 // ----------WORLD CREATION - END
 
 // LOADING IMAGES - START
@@ -122,7 +121,6 @@ let goriY = canvas.height / 2;
 // ----------PLAYER STARTING  POSITION - END
 
 // FRUITS AND EAGLES STARTING POSITION - START
-
 const getRandom = x => Math.floor(Math.random() * x);
 
 let bananaX = getRandom(1200);
@@ -145,7 +143,6 @@ let eagle1Y = getRandom(600);
 
 let wormX = getRandom(1000);
 let wormY = getRandom(600);
-
 // ----------FRUITS AND EAGLES STARTING POSITION - END
 
 // SETUP KEYBOARD LISTENERS - START
@@ -169,9 +166,9 @@ function setupKeyboardListeners() {
 }
 // ----------SETUP KEYBOARD LISTENERS - END
 
+// GAME UPDATE - START
 let update = function() {
   // TIMER - START
-
   elapsedTime = Math.floor((Date.now() - startTime) / 1000);
   let timer;
   timer = setInterval(() => {
@@ -179,7 +176,6 @@ let update = function() {
     document.getElementById("timeDown").innerHTML =
       "Remaining time: " + timeDown + "s";
   });
-
   // TIMER - END
 
   // PLAYER 1 MOVEMENT KEYS - START
@@ -251,7 +247,6 @@ let update = function() {
   // ----------BEYOND BORDER & REAPPEAR - GORI - END
 
   // BEYOND BORDER & REAPPEAR - EAGLE - START
-
   const eagleSpeed = game.startspeed - 15;
   eagleX += eagleSpeed;
   eagleY = eagleY;
@@ -268,7 +263,6 @@ let update = function() {
   // ----------BEYOND BORDER & REAPPEAR - EAGLE - START
 
   // BEYOND BORDER & REAPPEAR - EAGLE1 - START
-
   const eagle1Speed = game.startspeed + 15;
   eagle1X += eagle1Speed;
   eagle1Y = eagle1Y;
@@ -371,6 +365,7 @@ let update = function() {
 
   document.getElementById("scoreMonkey").innerHTML =
     "Monkey Score: " + scoreMonkey;
+  // ----------MONKEY INTERACTIONS - END
 
   // HIGHSCORE MONKEY - START
   const currentHighScoreMonkey = localStorage.getItem("high-scoreMonkey");
@@ -382,9 +377,7 @@ let update = function() {
     document.getElementById("highScoreMonkey").innerHTML =
       "Highest Score: " + currentHighScoreMonkey;
   }
-  // HIGHSCORE MONKEY - END
-
-  // ----------MONKEY INTERACTIONS - END
+  // ----------HIGHSCORE MONKEY - END
 
   // GORI INTERACTIONS - START
   let goriTouchBanana =
@@ -472,6 +465,7 @@ let update = function() {
   }
 
   document.getElementById("scoreGori").innerHTML = "Gori Score: " + scoreGori;
+  // ----------GORI INTERACTIONS - END
 
   // HIGHSCORE GORI - START
   const currentHighScoreGori = localStorage.getItem("high-scoreGori");
@@ -483,11 +477,11 @@ let update = function() {
     document.getElementById("highScoreGori").innerHTML =
       "Highest Score: " + currentHighScoreGori;
   }
-  // HIGHSCORE GORI - END
-
-  // ----------GORI INTERACTIONS - END
+  // ----------HIGHSCORE GORI - END
 };
+// ----------GAME UPDATE - END
 
+// GAME MUSIC - START
 var myMusic = new Audio("bgmusic.ogg");
 function playMusic() {
   myMusic.addEventListener(
@@ -510,6 +504,7 @@ function pauseMusic() {
   myMusic.pause();
   myMusic.currentTime = 0;
 }
+// ----------GAME MUSIC - END
 
 // RENDERING - START
 var render = function() {
@@ -608,6 +603,7 @@ var render = function() {
 };
 // ----------RENDERING - END
 
+// MAIN - START
 /**
  * The main game loop. Most every game will have two distinct parts:
  * update (updates the state of the game, in this case our monkey and banana)
@@ -630,7 +626,9 @@ requestAnimationFrame =
   w.webkitRequestAnimationFrame ||
   w.msRequestAnimationFrame ||
   w.mozRequestAnimationFrame;
+// ----------MAIN - END
 
+// START GAME - START
 // Let's play this game!
 function playGame() {
   loadImages();
@@ -640,10 +638,9 @@ function playGame() {
   document.getElementById("playGame").disabled = true;
   playMusic();
 }
-// function pauseGame() {
+// ----------START GAME - END
 
-// }
-
+// RESET GAME - START
 function resetGame() {
   main();
   elapsedTime = 0;
@@ -683,3 +680,4 @@ function resetGame() {
   wormY = getRandom(600);
   // ----------FRUITS AND EAGLES STARTING POSITION - END
 }
+// ----------RESET GAME - END

@@ -30,7 +30,7 @@ body {
 .description {
   font-size: 1.5rem;
   /* background-color: red; */
-  text-align:justify;
+  text-align: justify;
 }
 
 .greenText {
@@ -60,14 +60,12 @@ body {
 }
 
 .button3 {
-    margin: 0.5rem;
-    width: 12rem;
+  margin: 0.5rem;
+  width: 12rem;
   height: 3rem;
   font-size: 1.5rem;
   font-weight: bold;
-  }
-
-
+}
 
 #timeDown {
   display: flex;
@@ -77,8 +75,8 @@ body {
   font-weight: bold;
   margin-top: 1rem;
   border: 3px #2b645d solid;
-  border-radius: 30px;
-  width: 25rem;
+  border-radius: 20px;
+  width: 21rem;
 }
 
 .row {
@@ -99,7 +97,7 @@ body {
   font-weight: bold;
   border: 3px #2b645d solid;
   /* border-right: 0px; */
-  border-radius: 50px 15px 15px 50px;
+  border-radius: 20px 20px 20px 20px;
   margin: 0.5rem;
 }
 
@@ -112,7 +110,7 @@ body {
   font-size: 1.5rem;
   font-weight: bold;
   border: 3px #2b645d solid;
-  border-radius: 15px 50px 50px 15px;
+  border-radius: 20px 20px 20px 20px;
   margin: 0.5rem;
 }
 
