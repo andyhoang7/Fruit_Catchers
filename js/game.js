@@ -34,7 +34,7 @@ let bgImage,
   eagle1Image;
 
 let startTime = Date.now();
-const SECONDS_PER_ROUND = 30;
+const SECONDS_PER_ROUND = 15;
 let elapsedTime = 0;
 
 let game = {
@@ -52,7 +52,7 @@ function loadImages() {
   bgImage.onload = function() {
     bgReady = true;
   };
-  bgImage.src = "images/bg.png";
+  bgImage.src = "images/bg1.png";
 
   monkeyImage = new Image();
   monkeyImage.onload = function() {
@@ -574,6 +574,11 @@ function playGame() {
   main();
   document.getElementById("playGame").disabled = true;
 }
+
+// function pauseGame() {
+
+// }
+
 
 function resetGame() {
   main();
