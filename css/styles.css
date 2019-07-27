@@ -12,6 +12,7 @@ body {
 
 .container1 {
   /* background-color: coral; */
+  margin: 1rem;
 }
 
 #title {
@@ -27,10 +28,10 @@ body {
 }
 
 .description {
-  /* display: flex; */
-  /* text-align: center; */
   font-size: 1.5rem;
-  /* flex-direction: column; */
+  text-justify: newspaper;
+  /* background-color: red; */
+  text-align:justify;
 }
 
 .greenText {
@@ -43,33 +44,37 @@ body {
   font-weight: bold;
 }
 
-/* .buttonX {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  margin: 1rem;
-} */
-
-/* .button1 {
-  margin: 1rem;
-  width: 15rem;
-  height: 4rem;
-  font-size: 2rem;
+.button1 {
+  margin: 0.5rem;
+  width: 12rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .button2 {
-  margin: 1rem;
-  width: 15rem;
-  height: 4rem;
-  font-size: 2rem;
-} */
+  margin: 0.5rem;
+  width: 12rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.button3 {
+    margin: 0.5rem;
+    width: 12rem;
+  height: 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  }
+
+
 
 #timeDown {
   display: flex;
   justify-content: center;
   /* background-color: darkmagenta; */
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   margin-top: 1rem;
   border: 3px #2b645d solid;
@@ -124,6 +129,6 @@ body {
 
 .container3 {
   display: flex;
-  flex-direction: column;
-  background-color: red;
+  flex-flow: column wrap;
+  /* background-color: red; */
 }
