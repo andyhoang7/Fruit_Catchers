@@ -82,7 +82,7 @@ function loadImages() {
   appleImage.onload = function() {
     appleReady = true;
   };
-  appleImage.src = "images/apple1.png";
+  appleImage.src = "images/apple2.png";
 
   grapeImage = new Image();
   grapeImage.onload = function() {
@@ -113,7 +113,6 @@ let goriY = canvas.height / 2;
 // ----------PLAYER STARTING  POSITION - END
 
 // FRUITS AND EAGLES STARTING POSITION - START
-
 
 const getRandom = x => Math.floor(Math.random() * x);
 
@@ -310,16 +309,16 @@ let update = function() {
   }
 
   let monkeyTouchGrape =
-  monkeyX <= grapeX + 15 &&
-  grapeX <= monkeyX + 50 &&
-  monkeyY <= grapeY + 27 &&
-  grapeY <= monkeyY + 50;
+    monkeyX <= grapeX + 15 &&
+    grapeX <= monkeyX + 50 &&
+    monkeyY <= grapeY + 27 &&
+    grapeY <= monkeyY + 50;
 
-if (monkeyTouchGrape) {
-  scoreMonkey += 15;
-  grapeX = Math.floor(Math.random() * 1200);
-  grapeY = Math.floor(Math.random() * 700);
-}
+  if (monkeyTouchGrape) {
+    scoreMonkey += 15;
+    grapeX = Math.floor(Math.random() * 1200);
+    grapeY = Math.floor(Math.random() * 700);
+  }
 
   let monkeyTouchEagle =
     monkeyX <= eagleX + 100 &&
@@ -388,30 +387,28 @@ if (monkeyTouchGrape) {
   }
 
   let goriTouchApple =
-  goriX <= appleX + 15 &&
-  appleX <= goriX + 50 &&
-  goriY <= appleY + 27 &&
-  appleY <= goriY + 50;
+    goriX <= appleX + 15 &&
+    appleX <= goriX + 50 &&
+    goriY <= appleY + 27 &&
+    appleY <= goriY + 50;
 
-if (goriTouchApple) {
-  scoreGori += 10;
-  appleX = Math.floor(Math.random() * 1200);
-  appleY = Math.floor(Math.random() * 700);
-}
+  if (goriTouchApple) {
+    scoreGori += 10;
+    appleX = Math.floor(Math.random() * 1200);
+    appleY = Math.floor(Math.random() * 700);
+  }
 
-let goriTouchGrape =
-  goriX <= grapeX + 15 &&
-  grapeX <= goriX + 50 &&
-  goriY <= grapeY + 27 &&
-  grapeY <= goriY + 50;
+  let goriTouchGrape =
+    goriX <= grapeX + 15 &&
+    grapeX <= goriX + 50 &&
+    goriY <= grapeY + 27 &&
+    grapeY <= goriY + 50;
 
-if (goriTouchGrape) {
-  scoreGori += 15;
-  grapeX = Math.floor(Math.random() * 1200);
-  grapeY = Math.floor(Math.random() * 700);
-}
-
-
+  if (goriTouchGrape) {
+    scoreGori += 15;
+    grapeX = Math.floor(Math.random() * 1200);
+    grapeY = Math.floor(Math.random() * 700);
+  }
 
   let goriTouchEagle =
     goriX <= eagleX + 100 &&
