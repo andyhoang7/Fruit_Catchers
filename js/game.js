@@ -19,6 +19,7 @@ let bgReady,
   goriReady,
   bananaReady,
   pineappleReady,
+  appleReady,
   eagleReady,
   eagle1Ready;
 let bgImage,
@@ -26,6 +27,7 @@ let bgImage,
   goriImage,
   bananaImage,
   pineappleImage,
+  appleImage,
   eagleImage,
   eagle1Image;
 
@@ -34,7 +36,7 @@ const SECONDS_PER_ROUND = 30;
 let elapsedTime = 0;
 
 let game = {
-  startspeed: 1,
+  startspeed: 1
 };
 
 let scoreMonkey = 0;
@@ -66,13 +68,19 @@ function loadImages() {
   bananaImage.onload = function() {
     bananaReady = true;
   };
-  bananaImage.src = "images/banana3.png";
+  bananaImage.src = "images/banana4.png";
 
   pineappleImage = new Image();
   pineappleImage.onload = function() {
     pineappleReady = true;
   };
   pineappleImage.src = "images/pineapple1.png";
+
+  appleImage = new Image();
+  appleImage.onload = function() {
+    appleReady = true;
+  };
+  appleImage.src = "images/apple1.png";
 
   eagleImage = new Image();
   eagleImage.onload = function() {
@@ -97,9 +105,6 @@ let goriY = canvas.height / 2;
 // ----------PLAYER STARTING  POSITION - END
 
 // FRUITS AND EAGLES STARTING POSITION - START
-// function generateRandomInteger(min, max) {
-//     return Math.floor(min + Math.random()*(max + 1 - min))
-//   }
 
 
 const getRandom = x => Math.floor(Math.random() * x);
@@ -109,6 +114,9 @@ let bananaY = getRandom(700);
 
 let pineappleX = getRandom(1200);
 let pineappleY = getRandom(700);
+
+let appleX = getRandom(1200);
+let appleY = getRandom(700);
 
 let eagleX = getRandom(1000);
 let eagleY = getRandom(600);
@@ -278,6 +286,18 @@ let update = function() {
     pineappleY = Math.floor(Math.random() * 700);
   }
 
+  let monkeyTouchApple =
+    monkeyX <= appleX + 15 &&
+    appleX <= monkeyX + 50 &&
+    monkeyY <= appleY + 27 &&
+    appleY <= monkeyY + 50;
+
+  if (monkeyTouchApple) {
+    scoreMonkey += 20;
+    appleX = Math.floor(Math.random() * 1200);
+    appleY = Math.floor(Math.random() * 700);
+  }
+
   let monkeyTouchEagle =
     monkeyX <= eagleX + 100 &&
     eagleX <= monkeyX + 50 &&
@@ -310,10 +330,10 @@ let update = function() {
   if (scoreMonkey > currentHighScoreMonkey) {
     localStorage.setItem("high-scoreMonkey", scoreMonkey);
     document.getElementById("highScoreMonkey").innerHTML =
-      "Monkey Highest Score: " + scoreMonkey;
+      "Highest Score: " + scoreMonkey;
   } else {
     document.getElementById("highScoreMonkey").innerHTML =
-      "Monkey Highest Score: " + currentHighScoreMonkey;
+      "Highest Score: " + currentHighScoreMonkey;
   }
   // HIGHSCORE MONKEY - END
 
@@ -343,6 +363,18 @@ let update = function() {
     pineappleX = Math.floor(Math.random() * 1200);
     pineappleY = Math.floor(Math.random() * 700);
   }
+
+  let goriTouchApple =
+  goriX <= appleX + 15 &&
+  appleX <= goriX + 50 &&
+  goriY <= appleY + 27 &&
+  appleY <= goriY + 50;
+
+if (goriTouchApple) {
+  scoreGori += 20;
+  appleX = Math.floor(Math.random() * 1200);
+  appleY = Math.floor(Math.random() * 700);
+}
 
   let goriTouchEagle =
     goriX <= eagleX + 100 &&
@@ -375,10 +407,10 @@ let update = function() {
   if (scoreGori > currentHighScoreGori) {
     localStorage.setItem("high-scoreGori", scoreGori);
     document.getElementById("highScoreGori").innerHTML =
-      "Gori Highest Score: " + scoreGori;
+      "Highest Score: " + scoreGori;
   } else {
     document.getElementById("highScoreGori").innerHTML =
-      "Gori Highest Score: " + currentHighScoreGori;
+      "Highest Score: " + currentHighScoreGori;
   }
   // HIGHSCORE GORI - END
 
@@ -402,6 +434,9 @@ var render = function() {
   if (pineappleReady) {
     ctx.drawImage(pineappleImage, pineappleX, pineappleY);
   }
+  if (appleReady) {
+    ctx.drawImage(appleImage, appleX, appleY);
+  }
   if (eagleReady) {
     ctx.drawImage(eagleImage, eagleX, eagleY);
   }
@@ -418,17 +453,14 @@ var render = function() {
   if (SECONDS_PER_ROUND - elapsedTime == 0) {
     if (scoreMonkey > scoreGori) {
       ctx.fillStyle = "#163a2e";
-      ctx.fillRect(
-        200,
-        200,
-        canvas.width -400,
-        canvas.height -400,
-      );
+      ctx.fillRect(200, 200, canvas.width - 400, canvas.height - 400);
       ctx.textAlign = "center";
       ctx.font = "60px Arial";
       ctx.fillStyle = "white";
-      ctx.fillText("Monkey Won & Survived", 
-      canvas.width / 2, canvas.height / 2 - 30
+      ctx.fillText(
+        "Monkey Won & Survived",
+        canvas.width / 2,
+        canvas.height / 2 - 30
       );
       ctx.fillText(
         "Reset Game to try again",
@@ -437,39 +469,34 @@ var render = function() {
       );
       ctx.fillStyle = "green";
       clearInterval(timer);
-
-
-
     } else if (scoreGori > scoreMonkey) {
       ctx.fillStyle = "#163a2e";
-      ctx.fillRect(200,
-        200,
-        canvas.width -400,
-        canvas.height -400,);
+      ctx.fillRect(200, 200, canvas.width - 400, canvas.height - 400);
       ctx.textAlign = "center";
       ctx.font = "60px Arial";
       ctx.fillStyle = "white";
-      ctx.fillText("Gori Won & Survived", canvas.width / 2, canvas.height / 2 - 30);
+      ctx.fillText(
+        "Gori Won & Survived",
+        canvas.width / 2,
+        canvas.height / 2 - 30
+      );
       ctx.fillText(
         "Reset Game to try again",
         canvas.width / 2,
         canvas.height / 2 + 70
       );
       clearInterval(timer);
-
-
-
-
     } else {
       ctx.fillStyle = "#163a2e";
-      ctx.fillRect(200,
-        200,
-        canvas.width -400,
-        canvas.height -400,);
+      ctx.fillRect(200, 200, canvas.width - 400, canvas.height - 400);
       ctx.textAlign = "center";
       ctx.font = "60px Arial";
       ctx.fillStyle = "white";
-      ctx.fillText("You both suck. They all died...", canvas.width / 2, canvas.height / 2 - 30);
+      ctx.fillText(
+        "You both suck. They all died...",
+        canvas.width / 2,
+        canvas.height / 2 - 30
+      );
       ctx.fillText(
         "Reset Game to try again",
         canvas.width / 2,
@@ -533,6 +560,9 @@ function resetGame() {
 
   pineappleX = getRandom(1200);
   pineappleY = getRandom(700);
+
+  appleX = getRandom(1200);
+  appleY = getRandom(700);
 
   eagleX = getRandom(1000);
   eagleY = getRandom(600);
