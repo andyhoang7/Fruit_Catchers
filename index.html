@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <title>Fruit Catchers</title>
 
-
     <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
 
     <link
@@ -13,36 +12,49 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link
+      href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="css/styles.css" />
   </head>
 
   <body>
-        
-
     <div class="container-fluid container1">
       <div id="title">Fruit Catchers</div>
 
       <div class="description">
         <p>
-          <b>Baby Monkey & Hungry Gorilla are fighting for their survivals in the
-          jungle. Grab your fruits quickly and avoid looming predators, whoever
-          gathers more fruits will survive the coming hurricane!</b>
+          <b
+            >Baby Monkey & Hungry Gorilla are fighting for their survivals in
+            the jungle. Grab your fruits quickly and avoid looming predators,
+            whoever gathers more fruits will survive the coming hurricane!</b
+          >
         </p>
         <li>This is a 2-player game</li>
+        <li>Each game lasts 30 seconds</li>
+        <li>Whoever has the most points when time is up wins</li>
         <li>
           You can move Baby Monkey with Arrow keys & Hungry Gorilla with WASD
           keys
         </li>
         <li>
-          Each fruit has certain points: <span class="greenText"> Banana = 5 pts, Apple = 10 pts, Grape =
-          15 pts & Pineapple = 20 pts</span>
+          Each fruit has certain points:
+          <span class="greenText">
+            Banana = 5 pts, Apple = 10 pts, Grape = 15 pts & Pineapple = 20
+            pts</span
+          >
         </li>
-        <li>Avoid the apple worm and the eagles:<span class="redText"> Apple Worm = -10 pts & Eagle = -15 pts</span> if they catch you</li>
-        <li>Each game lasts 30 seconds</li>
-        <li>Whoever has the most points when time is up wins</li>
+        <li>
+          Avoid the apple worm and the eagles:<span class="redText">
+            Apple Worm = -10 pts & Eagle = -15 pts</span
+          >
+          if they catch you
+        </li>
       </div>
 
-      <div class="container">
+      <div class="container container2">
         <div class="row">
           <div class="col-md col-1">
             <div style="font-weight: bold">Baby Monkey</div>
@@ -59,56 +71,74 @@
 
       <div class="container" id="timeDown">Remaining time: 30s</div>
 
-      <div class="buttonX">
-        <button
-          type="button"
-          class="btn btn-success button1"
-          id="playGame"
-          onClick="playGame()"
-        >
-          Play Game
-        </button>
-        <button
-          type="button"
-          class="btn btn-warning button2"
-          id="reset"
-          onClick="resetGame()"
-        >
-          Reset Game
-        </button>
-
-
-
-        <button
-        type="button"
-        class="btn btn-warning button2"
-        id="reset"
-        onClick="playMusic()"
-      >
-        Play Music Game
-      </button>
-
-
-        <button
-          type="button"
-          class="btn btn-warning button2"
-          id="reset"
-          onClick="pauseMusic()"
-        >
-          Pause Music Game
-        </button>
-
-        
+      <div class="container container3">
+        <div class="row row2">
+          <button
+            type="button"
+            class="btn btn-success button1"
+            id="playGame"
+            onClick="playGame()"
+          >
+            Play Game
+          </button>
+          <button
+            type="button"
+            class="btn btn-warning button2"
+            id="reset"
+            onClick="resetGame()"
+          >
+            Reset Game
+          </button>
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-info dropdown-toggle"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Music
+            </button>
+            <div class="dropdown-menu">
+              <a
+                class="dropdown-item"
+                href="#"
+                id="pauseMusic"
+                onClick="pauseMusic()"
+                >Mute</a
+              >
+              <a
+                class="dropdown-item"
+                href="#"
+                id="playMusic"
+                onClick="playMusic()"
+                >Unmute</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    
-
 
     <div id="game">
       <script id="script" src="js/game.js"></script>
     </div>
 
-
-  
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
   </body>
 </html>

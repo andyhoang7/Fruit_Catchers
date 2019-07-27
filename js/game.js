@@ -506,7 +506,6 @@ function playMusic() {
   myMusic.loop = true;
   myMusic.play();
 }
-
 function pauseMusic() {
   myMusic.pause();
   myMusic.currentTime = 0;
@@ -683,13 +682,4 @@ function resetGame() {
   wormX = getRandom(1000);
   wormY = getRandom(600);
   // ----------FRUITS AND EAGLES STARTING POSITION - END
-}
-
-function sound(src) {
-  this.sound = document.createElement("audio");
-  this.sound.src = src;
-  this.sound.setAttribute("preload", "auto");
-  this.sound.setAttribute("controls", "none");
-  this.sound.style.display = "none";
-  document.body.appendChild(this.sound);
 }

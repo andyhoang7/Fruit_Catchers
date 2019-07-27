@@ -22,38 +22,36 @@ body {
   font-size: 4rem;
   /* background-color: blue; */
   margin: 1rem;
-  color: 
-  #2b645d;
-  text-shadow: 1px 1px 1px #317a5b; 
+  color: #2b645d;
+  text-shadow: 1px 1px 1px #317a5b;
 }
 
 .description {
-    /* display: flex; */
-    /* text-align: center; */
-    font-size: 1.5rem;
-    /* flex-direction: column; */
+  /* display: flex; */
+  /* text-align: center; */
+  font-size: 1.5rem;
+  /* flex-direction: column; */
 }
 
 .greenText {
-    color: #28a745;
-    font-weight: bold;
+  color: #28a745;
+  font-weight: bold;
 }
 
 .redText {
-    color: crimson;
-    font-weight: bold;
+  color: crimson;
+  font-weight: bold;
 }
 
-.buttonX {
+/* .buttonX {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: red; */
   flex-direction: row;
   margin: 1rem;
-}
+} */
 
-.button1 {
+/* .button1 {
   margin: 1rem;
   width: 15rem;
   height: 4rem;
@@ -65,7 +63,7 @@ body {
   width: 15rem;
   height: 4rem;
   font-size: 2rem;
-}
+} */
 
 #timeDown {
   display: flex;
@@ -77,10 +75,7 @@ body {
   border: 3px #2b645d solid;
   border-radius: 30px;
   width: 25rem;
-
 }
-
-
 
 .row {
   /* background-color: chocolate */
@@ -102,7 +97,6 @@ body {
   /* border-right: 0px; */
   border-radius: 50px 15px 15px 50px;
   margin: 0.5rem;
-
 }
 
 .col-2 {
@@ -116,16 +110,20 @@ body {
   border: 3px #2b645d solid;
   border-radius: 15px 50px 50px 15px;
   margin: 0.5rem;
-
-
 }
 
-#script {
+.row2 {
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
 }
 
 #game {
   /* background-color: green; */
+}
+
+.container3 {
+  display: flex;
+  flex-direction: column;
+  background-color: red;
 }
