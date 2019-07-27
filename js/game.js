@@ -22,7 +22,9 @@ let bgReady,
   appleReady,
   grapeReady,
   eagleReady,
-  eagle1Ready;
+  eagle1Ready,
+  wormReady;
+
 let bgImage,
   monkeyImage,
   goriImage,
@@ -31,10 +33,11 @@ let bgImage,
   appleImage,
   grapeImage,
   eagleImage,
-  eagle1Image;
+  eagle1Image,
+  wormImage;
 
 let startTime = Date.now();
-const SECONDS_PER_ROUND = 15;
+const SECONDS_PER_ROUND = 30;
 let elapsedTime = 0;
 
 let game = {
@@ -101,6 +104,12 @@ function loadImages() {
     eagle1Ready = true;
   };
   eagle1Image.src = "images/eagle3.png";
+
+  wormImage = new Image();
+  wormImage.onload = function() {
+    wormReady = true;
+  };
+  wormImage.src = "images/appleworm1.png";
 }
 // ----------LOADING IMAGES - END
 
@@ -133,6 +142,10 @@ let eagleY = getRandom(600);
 
 let eagle1X = getRandom(1000);
 let eagle1Y = getRandom(600);
+
+let wormX = getRandom(1000);
+let wormY = getRandom(600);
+
 // ----------FRUITS AND EAGLES STARTING POSITION - END
 
 // SETUP KEYBOARD LISTENERS - START
@@ -327,7 +340,7 @@ let update = function() {
     eagleY <= monkeyY + 50;
 
   if (monkeyTouchEagle) {
-    scoreMonkey -= 10;
+    scoreMonkey -= 15;
     eagleX = Math.floor(Math.random() * 1000);
     eagleY = Math.floor(Math.random() * 600);
   }
@@ -339,9 +352,21 @@ let update = function() {
     eagle1Y <= monkeyY + 50;
 
   if (monkeyTouchEagle1) {
-    scoreMonkey -= 10;
+    scoreMonkey -= 15;
     eagle1X = Math.floor(Math.random() * 1000);
     eagle1Y = Math.floor(Math.random() * 600);
+  }
+
+  let monkeyTouchWorm =
+    monkeyX <= wormX + 30 &&
+    wormX <= monkeyX + 30 &&
+    monkeyY <= wormY + 30 &&
+    wormY <= monkeyY + 30;
+
+  if (monkeyTouchWorm) {
+    scoreMonkey -= 10;
+    wormX = Math.floor(Math.random() * 1000);
+    wormY = Math.floor(Math.random() * 600);
   }
 
   document.getElementById("scoreMonkey").innerHTML =
@@ -417,7 +442,7 @@ let update = function() {
     eagleY <= goriY + 50;
 
   if (goriTouchEagle) {
-    scoreGori -= 10;
+    scoreGori -= 15;
     eagleX = Math.floor(Math.random() * 1000);
     eagleY = Math.floor(Math.random() * 600);
   }
@@ -429,9 +454,21 @@ let update = function() {
     eagle1Y <= goriY + 50;
 
   if (goriTouchEagle1) {
-    scoreGori -= 10;
+    scoreGori -= 15;
     eagle1X = Math.floor(Math.random() * 1000);
     eagle1Y = Math.floor(Math.random() * 600);
+  }
+
+  let goriTouchWorm =
+    goriX <= wormX + 30 &&
+    wormX <= goriX + 30 &&
+    goriY <= wormY + 30 &&
+    wormY <= goriY + 30;
+
+  if (goriTouchWorm) {
+    scoreGori -= 10;
+    wormX = Math.floor(Math.random() * 1000);
+    wormY = Math.floor(Math.random() * 600);
   }
 
   document.getElementById("scoreGori").innerHTML = "Gori Score: " + scoreGori;
@@ -450,6 +487,30 @@ let update = function() {
 
   // ----------GORI INTERACTIONS - END
 };
+
+var myMusic = new Audio("bgmusic.ogg");
+function playMusic() {
+  myMusic.addEventListener(
+    "timeupdate",
+    function() {
+      var buffer = 0.44;
+      if (this.currentTime > this.duration - buffer) {
+        this.currentTime = 0;
+        this.play();
+      }
+    },
+    false
+  );
+
+  myMusic.volume = 0.2;
+  myMusic.loop = true;
+  myMusic.play();
+}
+
+function pauseMusic() {
+  myMusic.pause();
+  myMusic.currentTime = 0;
+}
 
 // RENDERING - START
 var render = function() {
@@ -479,6 +540,9 @@ var render = function() {
   }
   if (eagle1Ready) {
     ctx.drawImage(eagle1Image, eagle1X, eagle1Y);
+  }
+  if (wormReady) {
+    ctx.drawImage(wormImage, wormX, wormY);
   }
 
   if (SECONDS_PER_ROUND - elapsedTime > 0) {
@@ -555,6 +619,7 @@ var main = function() {
   render();
   // Request to do this again ASAP. This is a special method
   // for web browsers.
+
   requestAnimationFrame(main);
 };
 
@@ -572,13 +637,13 @@ function playGame() {
   loadImages();
   setupKeyboardListeners();
   main();
-  document.getElementById("playGame").disabled = true;
-}
 
+  document.getElementById("playGame").disabled = true;
+  playMusic();
+}
 // function pauseGame() {
 
 // }
-
 
 function resetGame() {
   main();
@@ -614,5 +679,17 @@ function resetGame() {
 
   eagle1X = getRandom(1000);
   eagle1Y = getRandom(600);
+
+  wormX = getRandom(1000);
+  wormY = getRandom(600);
   // ----------FRUITS AND EAGLES STARTING POSITION - END
+}
+
+function sound(src) {
+  this.sound = document.createElement("audio");
+  this.sound.src = src;
+  this.sound.setAttribute("preload", "auto");
+  this.sound.setAttribute("controls", "none");
+  this.sound.style.display = "none";
+  document.body.appendChild(this.sound);
 }

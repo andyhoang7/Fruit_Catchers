@@ -34,6 +34,16 @@ body {
     /* flex-direction: column; */
 }
 
+.greenText {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.redText {
+    color: crimson;
+    font-weight: bold;
+}
+
 .buttonX {
   display: flex;
   justify-content: center;

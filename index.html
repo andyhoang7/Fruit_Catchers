@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <title>Fruit Catchers</title>
+
+
+    <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -13,14 +17,16 @@
   </head>
 
   <body>
+        
+
     <div class="container-fluid container1">
       <div id="title">Fruit Catchers</div>
 
       <div class="description">
         <p>
-          Baby Monkey & Hungry Gorilla are fighting for their survivals in the
+          <b>Baby Monkey & Hungry Gorilla are fighting for their survivals in the
           jungle. Grab your fruits quickly and avoid looming predators, whoever
-          gathers more fruits will survive the coming hurricane!
+          gathers more fruits will survive the coming hurricane!</b>
         </p>
         <li>This is a 2-player game</li>
         <li>
@@ -28,22 +34,22 @@
           keys
         </li>
         <li>
-          Each fruit has certain points: Banana = 5 pts, Apple = 10 pts, Grape =
-          15 pts & Pineapple = 20 pts
+          Each fruit has certain points: <span class="greenText"> Banana = 5 pts, Apple = 10 pts, Grape =
+          15 pts & Pineapple = 20 pts</span>
         </li>
-        <li>Avoid the eagles. Eagle = -10 pts if they catch you</li>
-        <li>Each game lasts 15 seconds</li>
+        <li>Avoid the apple worm and the eagles:<span class="redText"> Apple Worm = -10 pts & Eagle = -15 pts</span> if they catch you</li>
+        <li>Each game lasts 30 seconds</li>
         <li>Whoever has the most points when time is up wins</li>
       </div>
 
       <div class="container">
         <div class="row">
-          <div class="col-sm col-1">
+          <div class="col-md col-1">
             <div style="font-weight: bold">Baby Monkey</div>
             <div id="scoreMonkey">Monkey Score: 0</div>
             <div id="highScoreMonkey">Highest Score: 0</div>
           </div>
-          <div class="col-sm col-2">
+          <div class="col-md col-2">
             <div style="font-weight: bold">Hungry Gori</div>
             <div id="scoreGori">Gori Score: 0</div>
             <div id="highScoreGori">Highest Score: 0</div>
@@ -51,7 +57,7 @@
         </div>
       </div>
 
-      <div class="container" id="timeDown">Remaining time: 15s</div>
+      <div class="container" id="timeDown">Remaining time: 30s</div>
 
       <div class="buttonX">
         <button
@@ -71,20 +77,38 @@
           Reset Game
         </button>
 
-        <!-- <button
+
+
+        <button
         type="button"
-        class="btn btn-warning button3"
-        id="pause"
-        onClick="pauseGame()"
+        class="btn btn-warning button2"
+        id="reset"
+        onClick="playMusic()"
       >
-        Pause Game
+        Play Music Game
       </button>
 
-      </div> -->
+
+        <button
+          type="button"
+          class="btn btn-warning button2"
+          id="reset"
+          onClick="pauseMusic()"
+        >
+          Pause Music Game
+        </button>
+
+        
     </div>
+
+    
+
 
     <div id="game">
       <script id="script" src="js/game.js"></script>
     </div>
+
+
+  
   </body>
 </html>
