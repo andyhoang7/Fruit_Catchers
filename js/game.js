@@ -36,10 +36,6 @@ let bgImage,
   eagle1Image,
   wormImage;
 
-let startTime = Date.now();
-const SECONDS_PER_ROUND = 30;
-let elapsedTime = 0;
-
 let game = {
   startspeed: 1
 };
@@ -165,6 +161,10 @@ function setupKeyboardListeners() {
   );
 }
 // ----------SETUP KEYBOARD LISTENERS - END
+
+const SECONDS_PER_ROUND = 30;
+let elapsedTime = 0;
+let startTime = Date.now();
 
 // GAME UPDATE - START
 let update = function() {
