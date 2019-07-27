@@ -20,6 +20,7 @@ let bgReady,
   bananaReady,
   pineappleReady,
   appleReady,
+  grapeReady,
   eagleReady,
   eagle1Ready;
 let bgImage,
@@ -28,6 +29,7 @@ let bgImage,
   bananaImage,
   pineappleImage,
   appleImage,
+  grapeImage,
   eagleImage,
   eagle1Image;
 
@@ -82,6 +84,12 @@ function loadImages() {
   };
   appleImage.src = "images/apple1.png";
 
+  grapeImage = new Image();
+  grapeImage.onload = function() {
+    grapeReady = true;
+  };
+  grapeImage.src = "images/grape1.png";
+
   eagleImage = new Image();
   eagleImage.onload = function() {
     eagleReady = true;
@@ -117,6 +125,9 @@ let pineappleY = getRandom(700);
 
 let appleX = getRandom(1200);
 let appleY = getRandom(700);
+
+let grapeX = getRandom(1200);
+let grapeY = getRandom(700);
 
 let eagleX = getRandom(1000);
 let eagleY = getRandom(600);
@@ -269,7 +280,7 @@ let update = function() {
     bananaY <= monkeyY + 50;
 
   if (monkeyTouchBanana) {
-    scoreMonkey += 10;
+    scoreMonkey += 5;
     bananaX = Math.floor(Math.random() * 1200);
     bananaY = Math.floor(Math.random() * 700);
   }
@@ -293,10 +304,22 @@ let update = function() {
     appleY <= monkeyY + 50;
 
   if (monkeyTouchApple) {
-    scoreMonkey += 20;
+    scoreMonkey += 10;
     appleX = Math.floor(Math.random() * 1200);
     appleY = Math.floor(Math.random() * 700);
   }
+
+  let monkeyTouchGrape =
+  monkeyX <= grapeX + 15 &&
+  grapeX <= monkeyX + 50 &&
+  monkeyY <= grapeY + 27 &&
+  grapeY <= monkeyY + 50;
+
+if (monkeyTouchGrape) {
+  scoreMonkey += 15;
+  grapeX = Math.floor(Math.random() * 1200);
+  grapeY = Math.floor(Math.random() * 700);
+}
 
   let monkeyTouchEagle =
     monkeyX <= eagleX + 100 &&
@@ -347,7 +370,7 @@ let update = function() {
     bananaY <= goriY + 50;
 
   if (goriTouchBanana) {
-    scoreGori += 10;
+    scoreGori += 5;
     bananaX = Math.floor(Math.random() * 1200);
     bananaY = Math.floor(Math.random() * 700);
   }
@@ -371,10 +394,24 @@ let update = function() {
   appleY <= goriY + 50;
 
 if (goriTouchApple) {
-  scoreGori += 20;
+  scoreGori += 10;
   appleX = Math.floor(Math.random() * 1200);
   appleY = Math.floor(Math.random() * 700);
 }
+
+let goriTouchGrape =
+  goriX <= grapeX + 15 &&
+  grapeX <= goriX + 50 &&
+  goriY <= grapeY + 27 &&
+  grapeY <= goriY + 50;
+
+if (goriTouchGrape) {
+  scoreGori += 15;
+  grapeX = Math.floor(Math.random() * 1200);
+  grapeY = Math.floor(Math.random() * 700);
+}
+
+
 
   let goriTouchEagle =
     goriX <= eagleX + 100 &&
@@ -436,6 +473,9 @@ var render = function() {
   }
   if (appleReady) {
     ctx.drawImage(appleImage, appleX, appleY);
+  }
+  if (grapeReady) {
+    ctx.drawImage(grapeImage, grapeX, grapeY);
   }
   if (eagleReady) {
     ctx.drawImage(eagleImage, eagleX, eagleY);
@@ -563,6 +603,9 @@ function resetGame() {
 
   appleX = getRandom(1200);
   appleY = getRandom(700);
+
+  grapeX = getRandom(1200);
+  grapeY = getRandom(700);
 
   eagleX = getRandom(1000);
   eagleY = getRandom(600);
