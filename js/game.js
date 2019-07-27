@@ -550,7 +550,7 @@ var render = function() {
       ctx.fillStyle = "#163a2e";
       ctx.fillRect(200, 200, canvas.width - 400, canvas.height - 400);
       ctx.textAlign = "center";
-      ctx.font = "60px Arial";
+      ctx.font = "60px helvetica";
       ctx.fillStyle = "white";
       ctx.fillText(
         "Monkey Won & Survived",
@@ -562,13 +562,12 @@ var render = function() {
         canvas.width / 2,
         canvas.height / 2 + 70
       );
-      ctx.fillStyle = "green";
       clearInterval(timer);
     } else if (scoreGori > scoreMonkey) {
       ctx.fillStyle = "#163a2e";
       ctx.fillRect(200, 200, canvas.width - 400, canvas.height - 400);
       ctx.textAlign = "center";
-      ctx.font = "60px Arial";
+      ctx.font = "60px helvetica";
       ctx.fillStyle = "white";
       ctx.fillText(
         "Gori Won & Survived",
@@ -585,10 +584,10 @@ var render = function() {
       ctx.fillStyle = "#163a2e";
       ctx.fillRect(200, 200, canvas.width - 400, canvas.height - 400);
       ctx.textAlign = "center";
-      ctx.font = "60px Arial";
+      ctx.font = "60px helvetica";
       ctx.fillStyle = "white";
       ctx.fillText(
-        "You both suck. They all died...",
+        "What a pity. They all died...",
         canvas.width / 2,
         canvas.height / 2 - 30
       );
