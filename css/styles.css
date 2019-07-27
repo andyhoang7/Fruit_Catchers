@@ -29,7 +29,6 @@ body {
 
 .description {
   font-size: 1.5rem;
-  text-justify: newspaper;
   /* background-color: red; */
   text-align:justify;
 }
