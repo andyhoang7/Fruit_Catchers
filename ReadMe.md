@@ -15,16 +15,16 @@ The following functionalities are completed:
 * [x] The players can move their characters with the Arrow keys (Baby Monkey) & WASD keys (Hungry Gori).
 * [x] The players can move their characters beyond the game boundaries and have their characters reappear at the opposite sides.
 
-* [x] The players can see obstacles (2 eagles & 1 apple worm) and fruits (1 banana, 1 apple, 1 grapefruit & 1 pineapple). 
-* [x] The obstacles and fruits are placed at a random location within the game boundaries.
+* [x] The players can see the background, obstacles (2 eagles & 1 apple worm) and fruits (1 banana, 1 apple, 1 grapefruit & 1 pineapple). 
+* [x] The obstacles and fruits are placed at random locations within the game boundaries.
 
-* [x] The players can catch the fruits by moving their character to the same location as the fruits.
+* [x] The players can catch the fruits by moving their characters to the same location as the fruits.
 * [x] When the players catch a fruit, a new same kind fruit is placed randomly upon the screen.
-* [x] Every time they catch a fruit, the number should increase as follows: 🍌 = 5 pts, 🍎 = 10 pts, 🍇 = 15 pts & 🍍 = 20 pts.
+* [x] Every time they catch a fruit, their scores should increase as follows: 🍌 = 5 pts, 🍎 = 10 pts, 🍇 = 15 pts & 🍍 = 20 pts.
 
-* [x] The eagles moves around on its own each frame (one from left->right, one from right->left), and the players must avoid colliding with them.
+* [x] The eagles moves around on their own frames (one from left->right, one from right->left).
 * [x] When the players got caught by the eagles, a new eagle is placed randomly upon the screen.
-* [x] Every time the players got caught by the eagles or got collided by the apple worm, the score should decrease as follows: 🍎🐛 = -10 pts & 🦅 = -15 pts.
+* [x] Every time the players got caught by the eagles or got collided with the apple worm, their scores should decrease as follows: 🍎🐛 = -10 pts & 🦅 = -15 pts.
 
 * [x] The players hear background music upon starting the game.
 * [x] The players can pause or play background music during gameplay.
@@ -43,7 +43,7 @@ Time spent: 20 hours spent in total.
 Describe any challenges encountered while building the app.
 - Make the second character move with a new set of keys.
 - Add music background with play/pause options.
-- Score tables for each character with total point scored and highest scores.
+- Score tables for each character with total points scored and highest scores.
 - Count down timer per game.
 - Reset game option.
 - Make game obstacles and fruits reappear randomly upon colliding.
