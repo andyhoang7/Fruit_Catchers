@@ -1,4 +1,4 @@
-# CoderSchool FTW - * FRUIT CATCHERS *
+# * FRUIT CATCHERS *
 
 Created with love by: `Thien Hoang`
   
