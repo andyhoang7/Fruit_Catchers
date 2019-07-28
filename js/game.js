@@ -104,7 +104,7 @@ function loadImages() {
   wormImage.onload = function() {
     wormReady = true;
   };
-  wormImage.src = "images/appleworm1.png";
+  wormImage.src = "images/appleworm3.png";
 }
 // ----------LOADING IMAGES - END
 
