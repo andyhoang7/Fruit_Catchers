@@ -7,7 +7,7 @@ View online at: `https://heuristic-turing-5a2c8f.netlify.com/`
 This is a 2-player canvas game using HTML5 & Javascript.  
 In case the content is too big, please zoom out your browser view for a smooth play. 
 
-![](./images/gamecapture1.png)
+![](./images/gamecapture2.png)
 
 ## User Stories
 
