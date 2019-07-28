@@ -6,24 +6,52 @@ View online at: `https://heuristic-turing-5a2c8f.netlify.com/`
   
 This is a 2-player canvas game using HTML5 & Javascript.
 
-![](./images/Capture.png)
+![](./images/Capture.PNG)
 
 ## User Stories
 
-The following functionalities are completed (this is a sample):
+The following functionalities are completed:
 
-* [x] Top navigation bar with dropdown buttons
-* [x] Banner with background image, white text, and a green button
-* [x] Color or text change when mouse hovers over
-* [x] At least 3 different body sections with different background images or colors
-* [x] 2 (or 3) card items per row in a body section
-* [x] Footer with social icons that link to the actual social pages
+* [x] The players can move their characters with the Arrow keys (Baby Monkey) & WASD keys (Hungry Gori).
+* [x] The players can move their characters beyond the game boundaries and have their characters reappear at the opposite sides.
+
+* [x] The players can see obstacles (2 eagles & 1 apple worm) and fruits (1 banana, 1 apple, 1 grapefruit & 1 pineapple). 
+* [x] The obstacles and fruits are placed at a random location within the game boundaries.
+
+* [x] The players can catch the fruits by moving their character to the same location as the fruits.
+* [x] When the players catch a fruit, a new same kind fruit is placed randomly upon the screen.
+* [x] Every time they catch a fruit, the number should increase as follows: 🍌 = 5 pts, 🍎 = 10 pts, 🍇 = 15 pts & 🍍 = 20 pts.
+
+* [x] The eagles moves around on its own each frame (one from left->right, one from right->left), and the players must avoid colliding with them.
+* [x] When the players got caught by the eagles, a new eagle is placed randomly upon the screen.
+* [x] Every time the players got caught by the eagles or got collided by the apple worm, the score should decrease as follows: 🍎🐛 = -10 pts & 🦅 = -15 pts.
+
+* [x] The players hear background music upon starting the game.
+* [x] The players can pause or play background music during gameplay.
+
+* [x] The players can see their total points scored. 
+* [x] The players can see their highest scores.
+* [x] The game ends when time is up (30 seconds per game). The total time elapsed is displayed during gameplay, in seconds.
+* [x] The game announces who wins based on whoever scores highest after each game.
+* [x] The players can reset game.
+* [x] The players can access this game from the internet (using Netlify).
 
 ## Time Spent and Lessons Learned
 
 Time spent: 20 hours spent in total.
 
 Describe any challenges encountered while building the app.
+- Make the second character move with a new set of keys.
+- Add music background with play/pause options.
+- Score tables for each character with total point scored and highest scores.
+- Count down timer per game.
+- Reset game option.
+- Make game obstacles and fruits reappear randomly upon colliding.
+- Make the eagles move across the background left-> right & right->left. 
+- Make the characters & the eagles reappear at the opposide sides when moving beyond game boundaries.
+- Decide who wins based on which character scores highest after each game.
+- Retain the highest score of each character even after reseting game or refreshing browser.
+- Freeze the game with winner announcement after time is up.
 
 ## License
 
