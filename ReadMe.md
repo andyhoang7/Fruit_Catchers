@@ -43,7 +43,8 @@ Time spent: 20 hours spent in total.
 
 Describe any challenges encountered while building the app.
 - Make the second character move with a new set of keys.
-- Add music background with play/pause options.
+- Add background music with play/pause options.
+- Background music loops seamlessly.
 - Score tables for each character with total points scored and highest scores.
 - Count down timer per game.
 - Reset game option.
