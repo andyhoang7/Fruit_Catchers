@@ -32,7 +32,7 @@ The following functionalities are completed:
 
 * [x] The players can see their total points scored. 
 * [x] The players can see their highest scores.
-* [x] The game ends when time is up (30 seconds per game). The total time elapsed is displayed during gameplay, in seconds.
+* [x] The game ends when time is up (40 seconds per game). The total time elapsed is displayed during gameplay, in seconds.
 * [x] The game announces who wins based on whoever scores highest after each game.
 * [x] The players can reset game.
 * [x] The players can access this game from the internet (using Netlify).

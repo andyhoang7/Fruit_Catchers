@@ -162,7 +162,7 @@ function setupKeyboardListeners() {
 }
 // ----------SETUP KEYBOARD LISTENERS - END
 
-const SECONDS_PER_ROUND = 30;
+const SECONDS_PER_ROUND = 40;
 let elapsedTime = 0;
 let startTime = Date.now();
 
